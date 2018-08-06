@@ -1,5 +1,5 @@
 ---
-layout: post
+layout:
 ---
 ## <center>Bayesian Updating of Key Performance Indicators
 
