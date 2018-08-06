@@ -1,5 +1,5 @@
 ---
-layout: jackyll-theme-slate
+theme: jekyll-theme-midnight
 ---
 ## <center>Bayesian Updating of Key Performance Indicators
 
