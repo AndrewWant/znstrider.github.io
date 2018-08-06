@@ -44,7 +44,7 @@ plt.ylabel('Probability', fontsize = 12);
 ```
 
 
-![png](output_6_0.png)
+![png](/images/bayesupdate_files/output_6_0.png)
 
 
 So most players values lie between 0.1 and 4
@@ -88,7 +88,7 @@ plt.ylabel('Probability', fontsize = 12);
 ```
 
 
-![png](output_11_0.png)
+![png](/images/bayesupdate_files/output_11_0.png)
 
 
 To look at the distribution of per 90 Values for a random player, we could just take the average of the above gamma distribution (1.5) and the respective Poisson distribution. <br> That is the quick and dirty and wrong way though. To be exact, we need to look at all the possible Poisson distributions and mix them together according to the probabilities of the respective lambdas.
@@ -112,7 +112,7 @@ plt.ylabel('Probability', fontsize = 12);
 ```
 
 
-![png](output_13_0.png)
+![png](/images/bayesupdate_files/output_13_0.png)
 
 
 This gives us a distribution of per90 Values we can expect from the population or a random player. <br>
@@ -158,13 +158,13 @@ So here for example, I observe a player making 7 Shots a game. Well, his true va
 Not so fast, as high values were pretty unlikely to begin with. We need to consider this. That is why we multiply the probability of the data under a hypothesis with the probability we believed that hypothesis to be true to begin with!
 </i>
 
-$$Posterior = \frac{Likelihood * Prior}{Marginal Likelihood}$$
+Posterior = Likelihood * Prior / Marginal Likelihood
 
 The probability of the data under a hypothesis is the <b>likelihood</b> of a hypothesis i. Multiply this with the prior probability and we almost get what we want. The <b>Posterior Probability</b> of a hypothesis i.
 Combining all hypotheses and their posterior probabilities gives us the <b>posterior distribution</b>. All we have to do now is to <i>normalize</i> the probabilities, so they again sum to one.
 We do this by diving by the Marginal Likelihood, which is the sum of likelihoods of all hypotheses or all the ways the observed data can happen within the model.
 
-$$Formally\> this\> can\> also\> be\> written\> as \quad p(H|E) = \frac{p(E|H)p(H)} {p(E)} \quad - \quad Bayes\> Rule$$
+Formally this can also be written as p(H|E) = p(E|H)p(H) / p(E)  -  Bayes Rule
 
 The last part of the equation is Bayes Rule, H being the hypothesis, E the evidence, p(H|E) the posterior, p(E|H) the marginal likelihood.
 
@@ -209,7 +209,7 @@ plt.suptitle('Posterior given the Sample');
 ```
 
 
-![png](output_21_0.png)
+![png](/images/bayesupdate_files/output_21_0.png)
 
 
 So this gives us quite a lot of information.
@@ -238,7 +238,7 @@ plt.ylabel('Probability', fontsize = 12);
 ```
 
 
-![png](output_24_0.png)
+![png](/images/bayesupdate_files/output_24_0.png)
 
 
 <br>The next step is quantifying the uncertainty with credible intervals, ie: <br>
