@@ -8,6 +8,6 @@ Some information about you!
 
 ### Contact me
 
-on Twitter or email
+on Twitter or via email
 
 [mindfulstrider@gmail.com](mailto:mindfulstrider@gmail.com)
