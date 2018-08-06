@@ -8,7 +8,7 @@ theme: jekyll-theme-slate
 name: znstrider
 
 # Short bio or description (displayed in the header)
-description: personal page hosting some projects, mostly football analytics, possibly some data visualizations
+description: personal page hosting some projects<br> mostly football analytics<br> possibly some data visualizations
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://avatars1.githubusercontent.com/u/34557509?s=460&v=4
