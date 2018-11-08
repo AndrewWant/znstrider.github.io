@@ -9,7 +9,7 @@ What I have not seen is a visualization of those angles and a discussion of how 
 
 
 This is how open angles line up originating from the goal.<br>
-In shape it looks remarkably similar how xG models ascribe goal probabilities.<br>
+In shape it looks remarkably similar to how xG models ascribe goal probabilities.<br>
 As the angle increases with decreasing distance to the goal, understandingly the angle shows a high correlation with shot conversion.
 
 Beyond using this angle as explanatory variable in xG Models, with Statsbomb Freeze Frame Data, we can also use this to start analyzing <b>Goalkeeper Positioning</b> and <b>Defender Positioning.</b>
