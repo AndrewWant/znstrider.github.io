@@ -117,16 +117,16 @@ To analyze positioning on those shots, it might be better to look at the relativ
 The next plot has to be taken with a huge grain of salt, because as I already mentioned, the angle increases as you get closer to the goal.<br>
 For this reason, the biggest angle deviations are all shots that are very close to the goal.<br>
 
-![png](/images/Analysing the Importance of Shot Angles_files/GK Deviation from Balanced Positioning on Unblocked On-Target-Shots_.png
+![png](/images/Analysing_the_Importance_of_Shot_Angles_files/GK_Deviation_from_Balanced_Positioning_on_Unblocked_On-Target-Shots_.png)
 
 For shots from 10-20m distance, a small effect still shows. Again, this is very likely due to closer shots having a bigger open angle to the goal and thus being converted more often.
 
-![png](/images/Analysing_the_Importance_of_Shot_Angles_files/GK Deviation from Balanced Positioning On-Target-Shots (10m < x < 20m).png
+![png](/images/Analysing_the_Importance_of_Shot_Angles_files/GK_Deviation_from_Balanced_Positioning_On-Target-Shots_10-20m.png)
 
 Looking at the relative deviation seems just a tiny bit more promising here.<br>
 Shots with a relative GK deviation of < 0.7 all show a goal probability of 0.7 - 0.8, bigger than that we see it decrease to around 65% and < 40% for shots in the biggest deviation bin.
 
-![png](/images/Analysing_the_Importance_of_Shot_Angles_files/relative_gk_deviation_10-20m.png
+![png](/images/Analysing_the_Importance_of_Shot_Angles_files/relative_gk_deviation_10-20m.png)
 
 
 #### Math: Computation of Angles
