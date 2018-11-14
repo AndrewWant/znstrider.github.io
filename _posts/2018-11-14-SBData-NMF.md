@@ -324,7 +324,7 @@ for i in range(H.shape[0]):
 ```
 
 
-![png](output_20_0.png)
+![png](/images/2018-11-14-SBData-NMF_files/output_20.png)
 
 
 As you can see, this does capture some positional patterns really well:<br>
@@ -368,7 +368,7 @@ for i, player in enumerate(top_rated):
 ```
 
 
-![png](output_23_0.png)
+![png](/images/2018-11-14-SBData-NMF_files/output_23.png)
 
 
 Let's gather some more information on how values are distributed within the components:
@@ -731,7 +731,7 @@ for i in range(H.shape[0]):
 ```
 
 
-![png](output_37_0.png)
+![png](/images/2018-11-14-SBData-NMF_files/output_37.png)
 
 
 I really like how the model is able to capture a lot of positional patterns here. <br>
@@ -788,7 +788,7 @@ for i in range(H.shape[0]):
 ```
 
 
-![png](output_40_0.png)
+![png](/images/2018-11-14-SBData-NMF_files/output_40.png)
 
 
 ## Key Passes
@@ -841,7 +841,7 @@ for i in range(H.shape[0]):
 ```
 
 
-![png](output_42_0.png)
+![png](/images/2018-11-14-SBData-NMF_files/output_42.png)
 
 
 In general more data is better, but overall I am quite pleased of the structures all of the analyses bring to light.
