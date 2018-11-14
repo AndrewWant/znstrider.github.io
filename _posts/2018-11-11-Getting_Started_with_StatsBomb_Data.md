@@ -27,7 +27,7 @@ import json
 import pandas as pd
 import numpy as np
 from pandas.io.json import json_normalize
-from os import listdir
+from os import listdir, sep
 from os.path import isfile, join
 
 '''
@@ -35,25 +35,44 @@ Set mypath to your open-data-master/data/ path
 '''
 mypath = 
 
+def create_file_list(my_path=my_path, subfolder):
+    """
+    Generic function for creating a list of the files to be converted from json format
+    """
+    
+    parent_folder = os.sep.join((my_path, subfolder))
+    files = [f for f in listdir(parent_folder) if isfile(os.sep.join((parent_folder, f))) and f != ".DS_Store"]
+    return files
+
+# Using this list allows you to loop over it and create your lists of files without repeating the code:
+list_of_subfolders = ["events",
+                      "matches",
+                      "lineups"
+                     ]
+
+subfolder_contents = [create_file_list(my_path, sub_folder) for sub_folder in list_of_subfolders]
 
 # EVENTS AND FREEZE-FRAMES
-files = [f for f in listdir(mypath+'events/') if isfile(join(mypath+'events/', f))]
-try: #if you're on MacOS like I am this file might mess with you, so try removing it
-    files.remove('.DS_Store')
-except:
-    pass
+# files = [f for f in listdir(mypath+'events/') if isfile(join(mypath+'events/', f))]
+# try: #if you're on MacOS like I am this file might mess with you, so try removing it
+#     files.remove('.DS_Store')
+# except:
+#     pass
+
+files = create_file_list(subfolder=files[0])
 
 dfs = {}
 ffs = {}
 
-for file in files:
-    with open(mypath+'events/'+file) as data_file:
-        #print (mypath+'events/'+file)
+for _file in files:
+    with open(mypath+'events/'+_file) as data_file:
+        #print (mypath+'events/'+_file)
         data = json.load(data_file)
-        #get the nested structure into a dataframe 
-        df = json_normalize(data, sep = "_").assign(match_id = file[:-5])
+        #get the nested structure into a dataframe
+        #Here I think that match_id = _file.strip(".json") is a little more explicit, as shown in the following comment
+        df = json_normalize(data, sep = "_").assign(match_id = _file[:-5])
         #store the dataframe in a dictionary with the match id as key (remove '.json' from string)
-        dfs[file[:-5]] = df.set_index('id')    
+        dfs[_file[:-5]] = df.set_index('id')    
         shots = df.loc[df['type_name'] == 'Shot'].set_index('id')
         
         #get the freeze frame information for every shot in the df
@@ -97,14 +116,14 @@ except:
     pass
 
 matches_dfs = {}
-for file in files:
-    with open(mypath+'matches/'+file) as data_file:
-        #print (mypath+'lineups/'+file)
+for _file in files:
+    with open(os.sep.join((mypath, 'matches/', _file))) as data_file:
+        #print (mypath+'lineups/'+_file)
         data = json.load(data_file)
         #get the nested structure into a dataframe 
         df_ = json_normalize(data, sep = "_")
         #store the dataframe in a dictionary with the competition id as key
-        matches_dfs[file[:-5]] = df_
+        matches_dfs[_file[:-5]] = df_
 
 matches_df = pd.concat(matches_dfs)
 
@@ -120,12 +139,12 @@ except:
 dfs = {}
 ffs = {}
 
-for file in files:
-    with open(mypath+'lineups/'+file) as data_file:
-        #print (mypath+'events/'+file)
+for _file in files:
+    with open(os.sep.join((mypath, 'lineups/', _file))) as data_file:
+        #print (mypath+'events/'+_file)
         data = json.load(data_file)
         #get the nested structure into a dataframe 
-        df = json_normalize(data, sep = "_").assign(match_id = file[:-5])
+        df = json_normalize(data, sep = "_").assign(match_id = _file[:-5])
         df_1 = json_normalize(df.lineup.iloc[0], sep = "_").assign(
                 team_id = df.team_id.iloc[0],
                 team_name = df.team_name.iloc[0],
@@ -134,7 +153,7 @@ for file in files:
                 team_id = df.team_id.iloc[1],
                 team_name = df.team_name.iloc[1],
                 match_id = df.match_id.iloc[1])
-        dfs[file[:-5]] = pd.concat([df_1, df_2])
+        dfs[_file[:-5]] = pd.concat([df_1, df_2])
 
 lineups_df = pd.concat(dfs.values())
 
