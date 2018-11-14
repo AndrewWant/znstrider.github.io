@@ -197,7 +197,7 @@ How does one make sense of actions across the pitch? How can we gether patterns 
 That's what <i>Dimensionality Reduction Techniques</i>, specifically <i>Non Negative Matrix Factorization</i> allows us to do.
 
 The first thing we can do is bin the data across both the x- and y-axes.
-I chose to divide the pitch into 5x5 meter bins. Other dimensions might work better, you can try this out yourself if you'd like.
+I chose to divide the pitch into 5x5 metre bins. Other dimensions might work better, you can try this out yourself if you'd like.
 
 To keep the example simpler, let's assume I were to divide the pitch into 10 bins across both axes. That would give us a 10x10 grid, n = 100 bins in total.<br>
 
